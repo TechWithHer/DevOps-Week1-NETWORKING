@@ -5,8 +5,8 @@ Welcome to Week 1 of the **90 Days of DevOps - 2025 Edition**! This week's focus
 ## Tasks
 
 ### 1. **Understand OSI & TCP/IP Models**
-- Learn about the OSI and TCP/IP models, including their layers and purposes.
-- **Task:** Write examples of how each layer applies to real-world scenarios (e.g., HTTP at the Application Layer, TCP at the Transport Layer).
+- Learn about the OSI and TCP/IP models, including their layers and purposes. '''DONE''' 
+- **Task:** Write examples of how each layer applies to real-world scenarios (e.g., HTTP at the Application Layer, TCP at the Transport Layer). '''LinkedIn Post: https://www.linkedin.com/pulse/layer-osi-devops-ayushi-singh-4uduc '''
 
 ### 2. **Protocols and Ports for DevOps**
 - Study the most commonly used protocols (e.g., HTTP, HTTPS, FTP, SSH, DNS) and their port numbers.

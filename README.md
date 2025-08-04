@@ -17,7 +17,8 @@ Welcome to Week 1 of the **90 Days of DevOps - 2025 Edition**! This week's focus
 >> IN PROCESS (LI NEWSLETTER)
 
 ### 3. **AWS EC2 and Security Groups**
-- Launch an AWS EC2 instance (free tier is fine). >> DONE 
+- Launch an AWS EC2 instance (free tier is fine).
+>> DONE 
 - Learn about Security Groups, their rules, and their significance in securing cloud instances.
 - **Task:** Write a step-by-step guide or blog on how to create and configure Security Groups.
 

@@ -1,64 +1,61 @@
-1. ping : This sends ICMP echo requests to the domain 
+🔹 EC2 Instance Networking
 
-2. Netstat OR ss: The netstat command is used to display network connections, routing tables, interface statistics, masquerade connections, and multicast memberships. It’s like a network health dashboard for your system.
+ping → check connectivity between instances or to the internet.
 
-3. ifconfig
+curl / wget → test HTTP(S) endpoints from EC2.
 
-4. traceroute Vs tracepath: "Identify the path (hops/routers) a packet takes to reach a destination across the internet or network."
+traceroute / mtr → see path from EC2 to destination (helps with route table issues).
 
-5. mtr: mtr is a powerful network diagnostic tool that combines the functionality of ping and traceroute — giving you real-time, continuous updates on the route and performance between your system and a destination.
+nc (netcat) → test if specific ports are reachable (e.g., DB port, app port).
 
-6. nslookup
+ss / netstat → list active connections, listening ports.
 
-7. Telnet: Telnet is a network protocol and command-line tool that allows you to:
+ip addr / ip route → check private/public IPs and routing within the instance.
 
-Remotely access another computer or network device over a TCP/IP network, usually for administrative or testing purposes.
+arp / ip neigh → local neighbor resolution (rare but can help for ENI debugging).
 
-Open TCP connections to specific IP addresses and ports to test if a service is reachable, like checking if a web server, database, or mail server is accepting connections.
+🔹 VPC / Networking Debugging
 
-8. Hostname
+AWS CLI commands:
 
-9. ip
+aws ec2 describe-vpcs → list VPCs
 
-10. iwconfig
+aws ec2 describe-subnets → list subnets & CIDRs
 
-11. whois
+aws ec2 describe-route-tables → check routing rules
 
-12. arp: arp shows the mapping between IP addresses and MAC addresses on the local network.
+aws ec2 describe-security-groups → view security group rules
 
-13. dig
+aws ec2 describe-network-interfaces → ENI details, private IPs, MACs
 
-14. nc(netcat): netcat is a Swiss army knife of networking. It lets you:
-Test port connectivity (like Telnet, but better)
-Transfer files between machines
-Act as a server or a client
-Do banner grabbing, port scanning, and more
+aws ec2 describe-instances → verify IP assignment and network status
 
-15. iptables
+VPC Flow Logs → check allowed/blocked traffic inside your VPC.
 
-16. ifplugstatus
+🔹 DNS & Endpoint Testing
 
-17. route
+dig / nslookup → test Route53 records.
 
-18. nmap: Discover devices on a network
-Scan open ports
-Detect running services
-Identify OS and software versions
-Audit security
+curl -v → test connectivity to API Gateway, ELB, or other endpoints.
 
-19. Wget: wget is a command-line tool to download files or webpages from the internet.
-It supports HTTP, HTTPS, and FTP protocols, and can follow redirects, resume downloads, and download recursively.
+ping → test connectivity (if ICMP allowed by SG/NACL).
 
-20. Watch: watch is a Linux command-line utility that runs a specified command repeatedly at fixed intervals (default every 2 seconds) and displays the output fullscreen, letting you monitor changes in real-time.
+🔹 Security & Firewall
 
-21. curl
+iptables -L → instance-level firewall rules (rare in AWS, usually SG/NACL handles it).
 
-22. jq 
+nmap → scan instance ports to verify open/closed ports (if allowed by SG).
 
-23. Host : Lightweight alternative to `nslookup` or `dig`    
+🔹 Load Balancers & Public Services
 
-24. ethtool : Shows detailed Ethernet stats, link speed (handy for server checks)
+curl / wget → test ELB endpoints.
 
-25. tcdump : Packet capture utility (can add option to detect DNS or ICMP issues)
+dig → verify DNS for ALB/CNAME records.
 
-26. speedtest-cli: Test internet speed (optional, helps in slow-connection debugging)
+🔹 Cloud-Native Debugging Tools
+
+aws cloudwatch get-metric-data → monitor network traffic metrics.
+
+aws logs tail <log-group> → check VPC flow logs or app logs in real-time.
+
+aws ec2 get-console-output → for boot/network errors on instance launch.
